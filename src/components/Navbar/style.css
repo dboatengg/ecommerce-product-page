@@ -49,6 +49,7 @@
 }
 .cart {
   cursor: pointer;
+  font-size: 2.2rem;
 }
 .hamburger-btn {
   display: none;

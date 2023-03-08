@@ -31,19 +31,29 @@ const Navbar = () => {
           <ul className="navbar__menu">
             <IoMdClose onClick={handleClickClose} className="close-btn" />
             <li>
-              <a href="#">Collections</a>
+              <a onClick={handleClickClose} href="#">
+                Collections
+              </a>
             </li>
             <li>
-              <a href="#">Men</a>
+              <a onClick={handleClickClose} href="#">
+                Men
+              </a>
             </li>
             <li>
-              <a href="#">Women</a>
+              <a onClick={handleClickClose} href="#">
+                Women
+              </a>
             </li>
             <li>
-              <a href="#">About</a>
+              <a onClick={handleClickClose} href="#">
+                About
+              </a>
             </li>
             <li>
-              <a href="#">Contact</a>
+              <a onClick={handleClickClose} href="#">
+                Contact
+              </a>
             </li>
           </ul>
         </div>
