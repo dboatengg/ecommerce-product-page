@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import logo from "../../assets/logo.svg";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { RxHamburgerMenu } from "react-icons/rx";
@@ -8,12 +8,28 @@ import "./style.css";
 
 const Navbar = () => {
   const [menuActive, setMenuActive] = useState(false);
+  const menuRef = useRef(null);
 
   const handleClick = () => {
     setMenuActive(!menuActive);
   };
   const handleClickClose = () => {
     setMenuActive(false);
+  };
+
+  useEffect(() => {
+    menuActive &&
+      document.addEventListener("mousedown", handleClickOutsideMenu);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutsideMenu);
+    };
+  }, [menuActive]);
+
+  const handleClickOutsideMenu = (event) => {
+    if (menuRef.current && !menuRef.current.contains(event.target)) {
+      setMenuActive(false);
+    }
   };
 
   return (
@@ -28,7 +44,7 @@ const Navbar = () => {
             menuActive ? "show__menu" : "hide__menu"
           }`}
         >
-          <ul className="navbar__menu">
+          <ul className="navbar__menu" ref={menuRef}>
             <IoMdClose onClick={handleClickClose} className="close-btn" />
             <li>
               <a onClick={handleClickClose} href="#">
