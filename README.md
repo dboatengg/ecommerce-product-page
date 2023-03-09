@@ -2,15 +2,18 @@
 
 ![](https://i.imgur.com/OUOg2oi.jpg)
 
-This is a Frontendmentor project for an e-commerce product page. The product page showcases the features of a particular product and encourage visitors to make a purchase. <br>
-The page includes the following information:
+This is a Frontendmentor project for an e-commerce product page. The product page showcases the features of a particular product and encourage visitors to make a purchase.
+
+## Demo
+Check out the live site [here](). This project is still under construction.
+
+## Features
+
+The page includes the following:
 - Product description
 - Product images
 - Product pricing
 - Call-to-action button to add the product to shopping cart.
-
-## Demo
-Check out the live site [here](). This project is still under construction.
 
 ## Technologies Used
 
