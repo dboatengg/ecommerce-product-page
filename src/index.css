@@ -35,7 +35,13 @@ li {
 }
 a {
   text-decoration: none;
+}
+a,
+p {
   color: var(--dark-grayish-blue);
+}
+p {
+  line-height: 1.6;
 }
 img {
   max-width: 100%;

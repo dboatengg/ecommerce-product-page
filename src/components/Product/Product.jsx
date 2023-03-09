@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import "./style.css";
 
 /***********  importing icons**********/
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { GoDash } from "react-icons/go";
+import { MdOutlineArrowBackIosNew } from "react-icons/md";
+import { MdOutlineArrowForwardIos } from "react-icons/md";
 
 /****import product images */
 import { images } from "./product-image";
@@ -12,10 +14,20 @@ import image1 from "../../assets/image-product-1.jpg";
 function Product() {
   const [mainImage, setMainImage] = useState(image1);
   const [quantity, setQuantity] = useState(1);
+  const [selectedImageId, setSelectedImageId] = useState(1);
+  const mainImageRef = useRef(null);
 
   //set clicked image as main image
   function handleClick(newImage) {
     setMainImage(newImage);
+    setSelectedImageId(images.find((image) => image.src === newImage).id);
+
+    /*****Add animation when image changes */
+    const mainImageElement = mainImageRef.current;
+    mainImageElement.classList.add("fade-out");
+    setTimeout(() => {
+      mainImageElement.classList.remove("fade-out");
+    }, 200);
   }
 
   //increase and decrease product counter
@@ -48,23 +60,30 @@ function Product() {
   return (
     <div className="product-container ">
       <div className="product-images">
-        <img src={mainImage} className="main-image" alt="Main product image" />
-
-        {/* previous image arrow */}
-        <div className="arrow-btn left" onClick={handlePrevImage}>
-          &lt;
-        </div>
-
-        {/* previous image arrow */}
-        <div className="arrow-btn right" onClick={handleNextImage}>
-          &gt;
+        <div className="product-images__container">
+          <img
+            src={mainImage}
+            className="main-image"
+            alt="Main product image"
+            ref={mainImageRef}
+          />
+          <div className="arrow-btn">
+            <div className="left" onClick={handlePrevImage}>
+              <MdOutlineArrowBackIosNew />
+            </div>
+            <div className="right" onClick={handleNextImage}>
+              <MdOutlineArrowForwardIos />
+            </div>
+          </div>
         </div>
 
         {/* display image thumbnails  */}
         <div className="image-thumbnails">
           {images.map((image) => (
             <img
-              className="image-thumbnails__img"
+              className={`image-thumbnails__img ${
+                image.id === selectedImageId ? "selected-thumbnail" : ""
+              }`}
               key={image.id}
               src={image.thumbnail}
               alt={`Thumbnail for product image ${image.id}`}
@@ -75,14 +94,20 @@ function Product() {
       </div>
 
       <div className="product-details">
-        <p className="ta">SNEAKER COMPANY</p>
-        <h2>Fall Limited Edition Sneakers</h2>
-        <p>
+        <p className="product__tag">SNEAKER COMPANY</p>
+        <h2 className="product__title">Fall Limited Edition Sneakers</h2>
+        <p className="product__text">
           These low-profile sneakers are your perfect casual wear companion.
           Featuring a durable rubber outer sole, they’ll withstand everything
           the weather can offer.
         </p>
-        <p className="price">$99.99</p>
+        <div className="price">
+          <div className="price__container">
+            <h3 className="price__main">$125.00</h3>
+            <p className="price__discount">50%</p>
+          </div>
+          <h3 className="price__cancelled">$225.00</h3>
+        </div>
 
         <div className="product-select">
           <div className="quantity-selector">
