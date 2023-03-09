@@ -5,7 +5,8 @@
 This is a Frontendmentor project for an e-commerce product page. The product page showcases the features of a particular product and encourage visitors to make a purchase.
 
 ## Demo
-Check out the live site [here](). This project is still under construction.
+Check out the live site [here](https://ecommerce-official.netlify.app/).<br>
+This project is still under construction.
 
 ## Features
 
