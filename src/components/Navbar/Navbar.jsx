@@ -1,10 +1,15 @@
 import { useState, useRef, useEffect } from "react";
+
+/*********  importing images  ***********/
 import logo from "../../assets/logo.svg";
+import avatar from "../../assets/image-avatar.png";
+
+/*********  importing icons  ***********/
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoMdClose } from "react-icons/io";
-import avatar from "../../assets/image-avatar.png";
-import "./style.css";
+
+import "./navbar.css";
 
 const Navbar = () => {
   const [menuActive, setMenuActive] = useState(false);

@@ -63,9 +63,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 3px 8px;
+  padding: 0 8px;
   border-radius: 5px;
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 .decrease-btn {
   display: flex;
@@ -74,11 +74,11 @@
 }
 .increase-btn,
 .decrease-btn {
-  font-size: 3rem;
+  font-size: 2.9rem;
   font-weight: bold;
   color: var(--orange);
   cursor: pointer;
-  padding: 3px 7px;
+  padding: 2px 6px;
 }
 .increase-btn:hover,
 .decrease-btn:hover {
@@ -96,6 +96,7 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
+  padding: 15px 0;
   background-color: var(--orange);
   border-radius: 5px;
   color: var(--white);
@@ -167,7 +168,7 @@
   letter-spacing: 1.8px;
 }
 .price__cancelled {
-  color: var(--dark-grayish-blue);
+  color: var(--grayish-blue);
   text-decoration: line-through;
 }
 @media (max-width: 970px) {
@@ -233,16 +234,16 @@
 
 @media (max-width: 500px) {
   .product__title {
-    font-size: 2.5rem;
+    font-size: 3.2rem;
   }
   .price__main {
-    font-size: 2rem;
+    font-size: 2.8rem;
   }
   .price__cancelled {
     font-size: 1.6rem;
   }
   .price__discount {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
 }
 @media (max-width: 270px) {

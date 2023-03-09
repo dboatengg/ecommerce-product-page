@@ -1,5 +1,8 @@
 import { useState, useRef } from "react";
-import "./style.css";
+import "./product.css";
+
+/*********  importing components ***********/
+import Cart from "../Cart/Cart";
 
 /***********  importing icons**********/
 import { AiOutlineShoppingCart } from "react-icons/ai";
@@ -54,7 +57,27 @@ function Product() {
   }
 
   function handleAddToCart() {
-    // Handle adding product to cart
+    const product = {
+      name: "Fall Limited Edition Sneakers",
+      price: 125,
+      quantity: quantity,
+    };
+
+    // Check if there's already a cart in local storage
+    let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Check if product is already in cart
+    let itemIndex = cartItems.findIndex((item) => item.name === product.name);
+
+    // If product is already in cart, update quantity
+    if (itemIndex !== -1) {
+      cartItems[itemIndex].quantity += product.quantity;
+    } else {
+      cartItems.push(product);
+    }
+
+    // Save updated cart to local storage
+    localStorage.setItem("cart", JSON.stringify(cartItems));
   }
 
   return (
