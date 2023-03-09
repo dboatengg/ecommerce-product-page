@@ -4,6 +4,9 @@
 
 This is a Frontendmentor project for an e-commerce product page. The product page is designed to showcase the features and benefits of a particular product and encourage visitors to make a purchase. The page includes information such as product description, images, pricing, and a call-to-action button to add the product to the shopping cart.
 
+## Demo
+Check out the live site [here](). This project is still under construction.
+
 ## Technologies Used
 
 - React
