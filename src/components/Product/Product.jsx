@@ -5,47 +5,20 @@ import "./style.css";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { GoDash } from "react-icons/go";
 
-/*****  import images ******/
+/****import product images */
+import { images } from "./product-image";
 import image1 from "../../assets/image-product-1.jpg";
-import imageThumbnail1 from "../../assets/image-product-1-thumbnail.jpg";
-import image2 from "../../assets/image-product-2.jpg";
-import imageThumbnail2 from "../../assets/image-product-2-thumbnail.jpg";
-import image3 from "../../assets/image-product-3.jpg";
-import imageThumbnail3 from "../../assets/image-product-3-thumbnail.jpg";
-import image4 from "../../assets/image-product-4.jpg";
-import imageThumbnail4 from "../../assets/image-product-4-thumbnail.jpg";
 
 function Product() {
   const [mainImage, setMainImage] = useState(image1);
   const [quantity, setQuantity] = useState(1);
 
-  const images = [
-    {
-      id: 1,
-      src: image1,
-      thumbnail: imageThumbnail1,
-    },
-    {
-      id: 2,
-      src: image2,
-      thumbnail: imageThumbnail2,
-    },
-    {
-      id: 3,
-      src: image3,
-      thumbnail: imageThumbnail3,
-    },
-    {
-      id: 4,
-      src: image4,
-      thumbnail: imageThumbnail4,
-    },
-  ];
-
+  //set clicked image as main image
   function handleClick(newImage) {
     setMainImage(newImage);
   }
 
+  //increase and decrease product counter
   function handleQuantityChange(action) {
     if (action === "increase") {
       setQuantity(quantity + 1);
@@ -54,12 +27,14 @@ function Product() {
     }
   }
 
+  //go to previous image
   function handlePrevImage() {
     const currentIndex = images.findIndex((image) => image.src === mainImage);
     const prevIndex = currentIndex === 0 ? images.length - 1 : currentIndex - 1;
     setMainImage(images[prevIndex].src);
   }
 
+  //go to next image
   function handleNextImage() {
     const currentIndex = images.findIndex((image) => image.src === mainImage);
     const nextIndex = currentIndex === images.length - 1 ? 0 : currentIndex + 1;
@@ -75,13 +50,17 @@ function Product() {
       <div className="product-images">
         <img src={mainImage} className="main-image" alt="Main product image" />
 
+        {/* previous image arrow */}
         <div className="arrow-btn left" onClick={handlePrevImage}>
           &lt;
         </div>
+
+        {/* previous image arrow */}
         <div className="arrow-btn right" onClick={handleNextImage}>
           &gt;
         </div>
 
+        {/* display image thumbnails  */}
         <div className="image-thumbnails">
           {images.map((image) => (
             <img

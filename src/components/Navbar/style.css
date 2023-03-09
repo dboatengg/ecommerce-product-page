@@ -28,7 +28,7 @@
   content: "";
   position: absolute;
   left: 0;
-  bottom: -40px;
+  bottom: -35px;
   width: 0%;
   height: 5px;
   background-color: var(--orange);
@@ -57,9 +57,6 @@
 
 /* for tablet and mobile screens  */
 @media (max-width: 730px) {
-  /* .navbar {
-    height: 80px;
-  } */
   .navbar__menu li a::after {
     display: none;
   }
