@@ -2,7 +2,12 @@
 
 ![](https://i.imgur.com/OUOg2oi.jpg)
 
-This is a Frontendmentor project for an e-commerce product page. The product page is designed to showcase the features and benefits of a particular product and encourage visitors to make a purchase. The page includes information such as product description, images, pricing, and a call-to-action button to add the product to the shopping cart.
+This is a Frontendmentor project for an e-commerce product page. The product page showcases the features of a particular product and encourage visitors to make a purchase. <br>
+The page includes the following information:
+- Product description
+- Product images
+- Product pricing
+- Call-to-action button to add the product to shopping cart.
 
 ## Demo
 Check out the live site [here](). This project is still under construction.
