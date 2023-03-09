@@ -37,10 +37,19 @@ a {
   text-decoration: none;
   color: var(--dark-grayish-blue);
 }
+img {
+  max-width: 100%;
+  height: auto;
+}
+button {
+  background-color: transparent;
+  border: none;
+}
 .container {
-  width: 80%;
+  width: 85%;
   max-width: 1536px;
   margin: 0 auto;
+  position: relative;
 }
 
 @media (max-width: 830px) {
