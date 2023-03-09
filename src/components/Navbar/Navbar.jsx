@@ -9,6 +9,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoMdClose } from "react-icons/io";
 
+/*********  importing styling ***********/
 import "./navbar.css";
 
 const Navbar = () => {
@@ -38,50 +39,52 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar container">
-      <div className="navbar__left">
-        <RxHamburgerMenu className="hamburger-btn" onClick={handleClick} />
-        <a href="#">
-          <img className="logo" src={logo} alt="" />
-        </a>
-        <div
-          className={`navbar__menu-container ${
-            menuActive ? "show__menu" : "hide__menu"
-          }`}
-        >
-          <ul className="navbar__menu" ref={menuRef}>
-            <IoMdClose onClick={handleClickClose} className="close-btn" />
-            <li>
-              <a onClick={handleClickClose} href="#">
-                Collections
-              </a>
-            </li>
-            <li>
-              <a onClick={handleClickClose} href="#">
-                Men
-              </a>
-            </li>
-            <li>
-              <a onClick={handleClickClose} href="#">
-                Women
-              </a>
-            </li>
-            <li>
-              <a onClick={handleClickClose} href="#">
-                About
-              </a>
-            </li>
-            <li>
-              <a onClick={handleClickClose} href="#">
-                Contact
-              </a>
-            </li>
-          </ul>
+    <div className="nav">
+      <div className="navbar container">
+        <div className="navbar__left">
+          <RxHamburgerMenu className="hamburger-btn" onClick={handleClick} />
+          <a href="#">
+            <img className="logo" src={logo} alt="" />
+          </a>
+          <div
+            className={`navbar__menu-container ${
+              menuActive ? "show__menu" : "hide__menu"
+            }`}
+          >
+            <ul className="navbar__menu" ref={menuRef}>
+              <IoMdClose onClick={handleClickClose} className="close-btn" />
+              <li>
+                <a onClick={handleClickClose} href="#">
+                  Collections
+                </a>
+              </li>
+              <li>
+                <a onClick={handleClickClose} href="#">
+                  Men
+                </a>
+              </li>
+              <li>
+                <a onClick={handleClickClose} href="#">
+                  Women
+                </a>
+              </li>
+              <li>
+                <a onClick={handleClickClose} href="#">
+                  About
+                </a>
+              </li>
+              <li>
+                <a onClick={handleClickClose} href="#">
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-      <div className="navbar__right">
-        <AiOutlineShoppingCart className="cart" />
-        <img className="avatar" src={avatar} alt="" />
+        <div className="navbar__right">
+          <AiOutlineShoppingCart className="cart" />
+          <img className="avatar" src={avatar} alt="" />
+        </div>
       </div>
     </div>
   );

@@ -16,7 +16,7 @@ import image1 from "../../assets/image-product-1.jpg";
 
 function Product() {
   const [mainImage, setMainImage] = useState(image1);
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(0);
   const [selectedImageId, setSelectedImageId] = useState(1);
   const mainImageRef = useRef(null);
 
@@ -37,7 +37,7 @@ function Product() {
   function handleQuantityChange(action) {
     if (action === "increase") {
       setQuantity(quantity + 1);
-    } else if (action === "decrease" && quantity > 1) {
+    } else if (action === "decrease" && quantity > 0) {
       setQuantity(quantity - 1);
     }
   }
@@ -78,6 +78,8 @@ function Product() {
 
     // Save updated cart to local storage
     localStorage.setItem("cart", JSON.stringify(cartItems));
+
+    setQuantity(0);
   }
 
   return (

@@ -1,5 +1,14 @@
-.navbar {
+.nav {
+  background-color: var(--white);
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
   height: 90px;
+  z-index: 10;
+}
+.navbar {
+  height: 100%;
   justify-content: space-between;
   border-bottom: 1px solid var(--grayish-blue);
 }
@@ -72,7 +81,6 @@
     align-items: flex-start;
     padding-top: 30px;
     padding-left: 10%;
-    /* transition: 0.9s ease-in-out; */
   }
   .navbar__menu-container {
     position: fixed;
