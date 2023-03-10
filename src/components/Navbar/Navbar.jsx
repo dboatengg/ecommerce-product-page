@@ -14,6 +14,7 @@ import "./navbar.css";
 
 /*********  importing components ***********/
 import { useOutsideClick } from "../../custom-hooks/useOutsideClick";
+import Notification from "../Notification/Notification";
 
 const Navbar = ({ handleIconClick, setShowCart }) => {
   const [menuActive, setMenuActive] = useState(false);
@@ -76,6 +77,7 @@ const Navbar = ({ handleIconClick, setShowCart }) => {
           </div>
         </div>
         <div className="navbar__right">
+          <Notification />
           <AiOutlineShoppingCart className="cart" onClick={handleIconClick} />
           <img className="avatar" src={avatar} alt="" />
         </div>

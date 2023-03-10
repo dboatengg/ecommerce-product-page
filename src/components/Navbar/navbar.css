@@ -26,6 +26,9 @@
 .navbar__right {
   gap: 3rem;
 }
+.navbar__right {
+  position: relative;
+}
 .hamburger-btn,
 .close-btn {
   font-size: 3rem;

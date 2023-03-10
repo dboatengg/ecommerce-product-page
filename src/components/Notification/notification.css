@@ -1,7 +1,7 @@
 .notification {
-  position: fixed;
-  top: 24px;
-  right: 160px;
+  position: absolute;
+  top: 2px;
+  right: 60px;
   z-index: 30;
   font-size: 1rem;
 }
@@ -10,4 +10,10 @@
   border-radius: 2px;
   background-color: var(--orange);
   color: var(--white);
+}
+
+@media (max-width: 730px) {
+  .notification {
+    right: 55px;
+  }
 }
