@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import "./cart.css";
+import imagethumbnail1 from "../../assets/image-product-1-thumbnail.jpg";
 
 const Cart = ({ showCart }) => {
   const [cartItems, setCartItems] = useState(
@@ -14,7 +15,11 @@ const Cart = ({ showCart }) => {
       <div className="cart__bottom">
         {cartItems.map((item, index) => (
           <div key={index} className="cart__product">
-            <img className="cart__image" src={item.img} alt={item.name} />
+            <img
+              className="cart__image"
+              src={imagethumbnail1}
+              alt={item.name}
+            />
             <div className="cart__details">
               <p>{item.name}</p>
               <div className="cart__values">
