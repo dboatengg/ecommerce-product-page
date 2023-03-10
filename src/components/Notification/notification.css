@@ -1,0 +1,10 @@
+.notification {
+  position: absolute;
+  top: 0;
+}
+.notification p {
+  padding: 20px 30px;
+  border-radius: 2px;
+  background-color: var(--orange);
+  color: var(--white);
+}

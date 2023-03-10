@@ -1,8 +1,5 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import "./product.css";
-
-/*********  importing components ***********/
-import Cart from "../Cart/Cart";
 
 /***********  importing icons**********/
 import { AiOutlineShoppingCart } from "react-icons/ai";
@@ -13,6 +10,7 @@ import { MdOutlineArrowForwardIos } from "react-icons/md";
 /****import product images */
 import { images } from "./product-image";
 import image1 from "../../assets/image-product-1.jpg";
+import imagethumbnail1 from "../../assets/image-product-1-thumbnail.jpg";
 
 function Product() {
   const [mainImage, setMainImage] = useState(image1);
@@ -37,8 +35,10 @@ function Product() {
   function handleQuantityChange(action) {
     if (action === "increase") {
       setQuantity(quantity + 1);
+      // setTotalPrice(totalPrice + 255);
     } else if (action === "decrease" && quantity > 0) {
       setQuantity(quantity - 1);
+      // setTotalPrice(totalPrice - 255);
     }
   }
 
@@ -61,6 +61,7 @@ function Product() {
       name: "Fall Limited Edition Sneakers",
       price: 125,
       quantity: quantity,
+      img: imagethumbnail1,
     };
 
     // Check if there's already a cart in local storage
@@ -79,6 +80,7 @@ function Product() {
     // Save updated cart to local storage
     localStorage.setItem("cart", JSON.stringify(cartItems));
 
+    //set quantity to counter to 0
     setQuantity(0);
   }
 
