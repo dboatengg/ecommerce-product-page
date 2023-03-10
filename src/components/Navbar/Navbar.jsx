@@ -12,12 +12,13 @@ import { IoMdClose } from "react-icons/io";
 /*********  importing styling ***********/
 import "./navbar.css";
 
-const Navbar = () => {
+const Navbar = ({ handleIconClick, setShowCart }) => {
   const [menuActive, setMenuActive] = useState(false);
   const menuRef = useRef(null);
 
   const handleClick = () => {
     setMenuActive(!menuActive);
+    setShowCart(false);
   };
   const handleClickClose = () => {
     setMenuActive(false);
@@ -82,7 +83,7 @@ const Navbar = () => {
           </div>
         </div>
         <div className="navbar__right">
-          <AiOutlineShoppingCart className="cart" />
+          <AiOutlineShoppingCart className="cart" onClick={handleIconClick} />
           <img className="avatar" src={avatar} alt="" />
         </div>
       </div>

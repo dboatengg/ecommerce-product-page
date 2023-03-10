@@ -50,6 +50,7 @@ img {
 button {
   background-color: transparent;
   border: none;
+  font-family: "Kumbh Sans", sans-serif;
 }
 .container {
   width: 85%;
@@ -63,3 +64,9 @@ button {
     width: 90%;
   }
 }
+/* .show__cart {
+  transform: scale(1);
+}
+.hide__cart {
+  transform: scale(0);
+} */
