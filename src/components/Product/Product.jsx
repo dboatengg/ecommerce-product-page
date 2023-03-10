@@ -10,7 +10,6 @@ import { MdOutlineArrowForwardIos } from "react-icons/md";
 /****import product images */
 import { images } from "./product-image";
 import image1 from "../../assets/image-product-1.jpg";
-import imagethumbnail1 from "../../assets/image-product-1-thumbnail.jpg";
 
 function Product() {
   const [mainImage, setMainImage] = useState(image1);
@@ -61,7 +60,6 @@ function Product() {
       name: "Fall Limited Edition Sneakers",
       price: 125,
       quantity: quantity,
-      img: imagethumbnail1,
     };
 
     // Check if there's already a cart in local storage
