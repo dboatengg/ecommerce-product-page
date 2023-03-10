@@ -9,20 +9,12 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 /*********importing thumbnail image **********/
 import imagethumbnail1 from "../../assets/image-product-1-thumbnail.jpg";
 
-/*********importing custom hook **********/
-import { useOutsideClick } from "../../CustomHook/useOutsideClick";
-
-const Cart = ({ showCart, setShowCart }) => {
+const Cart = ({ showCart }) => {
   const cartRef = useRef(null);
 
   const [cartItems, setCartItems] = useState(
     JSON.parse(localStorage.getItem("cart")) || []
   );
-
-  /*******close cart menu when users click outside of it*********/
-  useOutsideClick(cartRef, () => {
-    setShowCart(false);
-  });
 
   return (
     <div

@@ -16,7 +16,7 @@ function App() {
     <div className="App">
       <Navbar handleIconClick={handleIconClick} setShowCart={setShowCart} />
       <Product />
-      <Cart showCart={showCart} setShowCart={setShowCart} />
+      <Cart showCart={showCart} />
     </div>
   );
 }
