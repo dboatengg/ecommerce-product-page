@@ -3,6 +3,7 @@ import { useState } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import Product from "./components/Product/Product";
 import Cart from "./components/Cart/Cart";
+import Notification from "./components/Notification/Notification";
 
 function App() {
   const [showCart, setShowCart] = useState(false);
@@ -17,6 +18,7 @@ function App() {
       <Navbar handleIconClick={handleIconClick} setShowCart={setShowCart} />
       <Product />
       <Cart showCart={showCart} />
+      <Notification />
     </div>
   );
 }
