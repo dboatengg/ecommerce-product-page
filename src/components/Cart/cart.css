@@ -2,7 +2,7 @@
   background-color: var(--white);
   position: fixed;
   width: 330px;
-  top: 18%;
+  top: 110px;
   right: 5%;
   box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.3);
   transition: 0.3s ease-in-out;

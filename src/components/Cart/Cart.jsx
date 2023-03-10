@@ -1,17 +1,37 @@
-import { useState, useEffect } from "react";
-import { RiDeleteBin6Line } from "react-icons/ri";
+import { useState, useEffect, useRef } from "react";
+
+/*********importing styles**********/
 import "./cart.css";
+
+/*********importing icons**********/
+import { RiDeleteBin6Line } from "react-icons/ri";
+
+/*********importing thumbnail image **********/
 import imagethumbnail1 from "../../assets/image-product-1-thumbnail.jpg";
 
-const Cart = ({ showCart }) => {
+/*********importing custom hook **********/
+import { useOutsideClick } from "../../CustomHook/useOutsideClick";
+
+const Cart = ({ showCart, setShowCart }) => {
+  const cartRef = useRef(null);
+
   const [cartItems, setCartItems] = useState(
     JSON.parse(localStorage.getItem("cart")) || []
   );
 
+  /*******close cart menu when users click outside of it*********/
+  useOutsideClick(cartRef, () => {
+    setShowCart(false);
+  });
+
   return (
-    <div className={`cart-container ${showCart ? "show__cart" : "hide__cart"}`}>
+    <div
+      className={`cart-container ${showCart ? "show__cart" : "hide__cart"}`}
+      ref={cartRef}
+    >
       <h3 className="cart__title">Cart</h3>
       <hr />
+
       <div className="cart__bottom">
         {cartItems.map((item, index) => (
           <div key={index} className="cart__product">

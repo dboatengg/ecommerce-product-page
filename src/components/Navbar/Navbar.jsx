@@ -12,6 +12,9 @@ import { IoMdClose } from "react-icons/io";
 /*********  importing styling ***********/
 import "./navbar.css";
 
+/*********  importing components ***********/
+import { useOutsideClick } from "../../CustomHook/useOutsideClick";
+
 const Navbar = ({ handleIconClick, setShowCart }) => {
   const [menuActive, setMenuActive] = useState(false);
   const menuRef = useRef(null);
@@ -24,20 +27,10 @@ const Navbar = ({ handleIconClick, setShowCart }) => {
     setMenuActive(false);
   };
 
-  useEffect(() => {
-    menuActive &&
-      document.addEventListener("mousedown", handleClickOutsideMenu);
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutsideMenu);
-    };
-  }, [menuActive]);
-
-  const handleClickOutsideMenu = (event) => {
-    if (menuRef.current && !menuRef.current.contains(event.target)) {
-      setMenuActive(false);
-    }
-  };
+  // close nav menu when you click outside of it
+  useOutsideClick(menuRef, () => {
+    setMenuActive(false);
+  });
 
   return (
     <div className="nav">

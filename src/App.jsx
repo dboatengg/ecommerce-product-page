@@ -8,7 +8,7 @@ function App() {
   const [showCart, setShowCart] = useState(false);
 
   function handleIconClick() {
-    setShowCart(!showCart); // toggle the showPopup state
+    setShowCart((prevState) => !prevState); // toggle the showPopup state
     console.log(showCart);
   }
 
@@ -16,7 +16,7 @@ function App() {
     <div className="App">
       <Navbar handleIconClick={handleIconClick} setShowCart={setShowCart} />
       <Product />
-      <Cart showCart={showCart} />
+      <Cart showCart={showCart} setShowCart={setShowCart} />
     </div>
   );
 }
