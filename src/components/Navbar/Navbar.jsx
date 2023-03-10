@@ -13,7 +13,7 @@ import { IoMdClose } from "react-icons/io";
 import "./navbar.css";
 
 /*********  importing components ***********/
-import { useOutsideClick } from "../../custom-hook/useOutsideClick";
+import { useOutsideClick } from "../../custom-hooks/useOutsideClick";
 
 const Navbar = ({ handleIconClick, setShowCart }) => {
   const [menuActive, setMenuActive] = useState(false);

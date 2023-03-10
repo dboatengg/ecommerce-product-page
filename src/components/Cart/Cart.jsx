@@ -22,7 +22,7 @@ const Cart = ({ showCart }) => {
       ref={cartRef}
     >
       <h3 className="cart__title">Cart</h3>
-      <hr />
+      <div className="divider"></div>
 
       <div className="cart__bottom">
         {cartItems.map((item, index) => (
@@ -33,7 +33,7 @@ const Cart = ({ showCart }) => {
               alt={item.name}
             />
             <div className="cart__details">
-              <p>{item.name}</p>
+              <p className="cart__name">{item.name}</p>
               <div className="cart__values">
                 <p>{`${item.price} x ${item.quantity}`}</p>
                 <p className="cart__totalPrice">{`$${
