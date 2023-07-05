@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useRef, useContext } from "react";
 
 /*********importing styles**********/
 import "./cart.css";
@@ -9,26 +9,12 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 /*********importing thumbnail image **********/
 import imagethumbnail1 from "../../assets/image-product-1-thumbnail.jpg";
 
+/*********Importing card context **********/
+import { CartContext } from "./CartContext";
+
 const Cart = ({ showCart }) => {
   const cartRef = useRef(null);
-
-  const [cartItems, setCartItems] = useState(
-    JSON.parse(localStorage.getItem("cart")) || []
-  );
-
-  const handleDelete = () => {
-    localStorage.clear();
-  };
-
-  /**********access quantity separately*********/
-  let cartItem = JSON.parse(localStorage.getItem("cart")) || [];
-  // Find the product in the cart with the desired name
-  let product = cartItem.find(
-    (item) => item.name === "Fall Limited Edition Sneakers"
-  );
-  // Get the quantity of the product
-  let quantity = product ? product.quantity : 0;
-
+  const { cartItems, removeFromCart } = useContext(CartContext);
   return (
     <div
       className={`cart-container ${showCart ? "show__cart" : "hide__cart"}`}
@@ -37,7 +23,7 @@ const Cart = ({ showCart }) => {
       <h3 className="cart__title">Cart</h3>
       <div className="divider"></div>
 
-      {quantity > 0 ? (
+      {cartItems.length > 0 ? (
         <div className="cart__bottom">
           {cartItems.map((item, index) => (
             <div key={index} className="cart__product">
@@ -50,13 +36,12 @@ const Cart = ({ showCart }) => {
                 <p className="cart__name">{item.name}</p>
                 <div className="cart__values">
                   <p>{`${item.price} x ${item.quantity}`}</p>
-                  <p className="cart__totalPrice">{`$${
-                    item.price * item.quantity
-                  }`}</p>
+                  <p className="cart__totalPrice">{`$${item.price * item.quantity
+                    }`}</p>
                 </div>
               </div>
               <RiDeleteBin6Line
-                onClick={handleDelete}
+                onClick={removeFromCart}
                 size={20}
                 className="cart__delete"
               />
