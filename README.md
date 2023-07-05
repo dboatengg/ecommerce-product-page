@@ -7,9 +7,6 @@ This is a Frontendmentor project for an e-commerce product page. The product pag
 ## Demo
 Check out the live site [here](https://ecommerce-official.netlify.app/).<br>
 
-## To be fixed...
-Adding and deleting product from cart requires page refresh to take effect.
-
 ## Features
 
 The page includes the following:
