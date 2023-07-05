@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
 import "./product.css";
 
 /***********  importing icons**********/
@@ -10,12 +10,16 @@ import { MdOutlineArrowForwardIos } from "react-icons/md";
 /****import product images */
 import { images } from "./product-image";
 import image1 from "../../assets/image-product-1.jpg";
+import { CartContext } from "../Cart/CartContext";
+
 
 function Product() {
   const [mainImage, setMainImage] = useState(image1);
   const [quantity, setQuantity] = useState(0);
   const [selectedImageId, setSelectedImageId] = useState(1);
   const mainImageRef = useRef(null);
+  const { cartItems, addToCart } = useContext(CartContext);
+
 
   //set clicked image as main image
   function handleClick(newImage) {
@@ -61,24 +65,7 @@ function Product() {
       price: 125,
       quantity: quantity,
     };
-
-    // Check if there's already a cart in local storage
-    let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
-
-    // Check if product is already in cart
-    let itemIndex = cartItems.findIndex((item) => item.name === product.name);
-
-    // If product is already in cart, update quantity
-    if (itemIndex !== -1) {
-      cartItems[itemIndex].quantity += product.quantity;
-    } else {
-      cartItems.push(product);
-    }
-
-    // Save updated cart to local storage
-    localStorage.setItem("cart", JSON.stringify(cartItems));
-
-    //set quantity to counter to 0
+    addToCart(product)
     setQuantity(0);
   }
 
@@ -106,9 +93,8 @@ function Product() {
         <div className="image-thumbnails">
           {images.map((image) => (
             <img
-              className={`image-thumbnails__img ${
-                image.id === selectedImageId ? "selected-thumbnail" : ""
-              }`}
+              className={`image-thumbnails__img ${image.id === selectedImageId ? "selected-thumbnail" : ""
+                }`}
               key={image.id}
               src={image.thumbnail}
               alt={`Thumbnail for product image ${image.id}`}
